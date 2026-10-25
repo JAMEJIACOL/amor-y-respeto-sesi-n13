@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Capítulo 23: El Ciclo Gratificante | El Lugar de Su Presencia</title>
+    
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #F4F1EA;
+            color: #1E293B;
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 95px;
+        }
+        header {
+            background: linear-gradient(135deg, #0F294A 0%, #1E293B 50%, #7C2D12 100%);
+            color: #ffffff;
+            padding: 22px 16px;
+            text-align: center;
+            border-bottom: 4px solid #C2410C;
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        header h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin: 6px 0 2px 0;
+            color: #ffffff;
+            line-height: 1.25;
+        }
+        header p {
+            font-size: 0.8rem;
+            color: #FED7AA;
+            font-weight: 300;
+        }
+        .badge {
+            display: inline-block;
+            background-color: rgba(217, 119, 6, 0.25);
+            color: #FDE68A;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+        main {
+            max-width: 720px;
+            margin: 16px auto;
+            padding: 0 12px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+        .card h2, .card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0F294A;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .info-box {
+            background: linear-gradient(90deg, #EFF6FF 0%, #FFF7ED 100%);
+            border-left: 4px solid #C2410C;
+            padding: 12px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.8rem;
+            color: #1E293B;
+            margin-top: 10px;
+        }
+        label {
+            display: block;
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #CBD5E1;
+            font-size: 16px !important; /* Previene auto-zoom en dispositivos móviles */
+            background-color: #FAFAFA;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            font-family: inherit;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #C2410C;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.15);
+        }
+        .radio-tile-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .radio-tile {
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #FAFAFA;
+            font-size: 0.825rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+        }
+        .radio-tile input { accent-color: #C2410C; }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #E2E8F0;
+            background-color: #FAFAFA;
+            margin-bottom: 6px;
+            font-size: 0.78rem;
+        }
+        .checkbox-item input {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: #C2410C;
+        }
+        .btn-whatsapp {
+            width: 100%;
+            background-color: #059669;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+            text-decoration: none;
+        }
+        .btn-whatsapp:active { transform: scale(0.98); }
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 10px 14px;
+            border-top: 1px solid #334155;
+            z-index: 50;
+        }
+        #toast {
+            position: fixed;
+            bottom: 80px;
+            left: 16px;
+            right: 16px;
+            background-color: #0F172A;
+            color: #ffffff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            display: none;
+            z-index: 100;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">
+            <i class="fa-solid fa-users"></i> Grupo de Conexión
+        </div>
+        <h1>Taller de Matrimonios: "Amor y Respeto"</h1>
+        <p>Iglesia El Lugar de Su Presencia &bull; Red de Parejas con Hijos Adultos</p>
+        <div style="margin-top: 8px; font-size: 0.725rem; color: #FDE68A; opacity: 0.9;">
+            <span><i class="fa-regular fa-bookmark"></i> Sección Trece: Cap. 23</span> &bull; 
+            <span><i class="fa-solid fa-crown text-amber-400"></i> "El Ciclo Gratificante"</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="card">
+            <h2>
+                <span><i class="fa-solid fa-gem" style="color: #C2410C;"></i> EL CICLO GRATIFICANTE</span>
+            </h2>
+            <p style="font-size: 0.825rem; color: #334155; margin-bottom: 8px;">
+                <strong>Capítulo 23:</strong> “La verdadera razón para Amar y Respetar”. Llegamos a la conclusión central del libro: amar y respetar incondicionalmente no depende de la respuesta de mi cónyuge, sino de mi amor y servicio a Jesucristo.
+            </p>
+            <div class="info-box">
+                <p style="font-weight: 700; color: #0F294A;">📖 El Ciclo Gratificante:</p>
+                <p>El <strong>Amor</strong> de él bendice, sin depender del respeto de ella.<br>
+                El <strong>Respeto</strong> de ella bendice, sin depender del amor de él.</p>
+            </div>
+        </div>
+
+        <form id="evaluationForm" onsubmit="event.preventDefault();">
+
+            <!-- DATOS DE REGISTRO -->
+            <div class="card">
+                <h3>
+                    <span>Datos de Registro</span>
+                    <span style="font-size: 0.7rem; color: #C2410C;">* Obligatorio</span>
+                </h3>
+
+                <div style="margin-bottom: 12px;">
+                    <label>Usted es: *</label>
+                    <div class="radio-tile-group">
+                        <label class="radio-tile">
+                            <input type="radio" name="rol" value="Esposo" required> Esposo (Azul)
+                        </label>
+                        <label class="radio-tile">
+                            <input type="radio" name="rol" value="Esposa" required> Esposa (Rosa)
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="nombre">Tu Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre y apellido...">
+                </div>
+
+                <div>
+                    <label for="conyuge">Nombre de tu Cónyuge *</label>
+                    <input type="text" id="conyuge" name="conyuge" required placeholder="Nombre de tu cónyuge...">
+                </div>
+            </div>
+
+            <!-- PREGUNTAS CAPÍTULO 23 -->
+            <div class="card">
+                <h3 style="color: #9A3412; border-bottom: 1px solid #FED7AA; padding-bottom: 6px;">
+                    Preguntas del Capítulo 23
+                </h3>
+
+                <!-- P1 -->
+                <div style="margin-bottom: 16px;">
+                    <label>1. “No se dé por vencido: confíe en el obrar de Dios”. ¿Cuál de las siguientes citas le habla más fuerte en este momento?</label>
+                    <div style="display: grid; gap: 6px; font-size: 0.78rem; margin-top: 6px;">
+                        <label><input type="radio" name="q1_cita" value="A. “No me daré por vencido aunque parezca que no está resultando”"> A. “No me daré por vencido aunque parezca que no está resultando”.</label>
+                        <label><input type="radio" name="q1_cita" value="B. “No dudaré de la luz de la Palabra de Dios en mis tiempos de oscuridad”"> B. “No dudaré de la luz de la Palabra de Dios en mis tiempos de oscuridad”.</label>
+                        <label><input type="radio" name="q1_cita" value="C. “A menudo, el Amor o el Respeto trabajan en mi cónyuge más de lo que yo creo”"> C. “A menudo, el Amor o el Respeto trabajan en mi cónyuge más de lo que yo creo”.</label>
+                        <label><input type="radio" name="q1_cita" value="D. “Tengo confianza en que Dios está obrando”"> D. “Tengo confianza en que Dios está obrando”.</label>
+                    </div>
+                </div>
+
+                <!-- P2 -->
+                <div style="margin-bottom: 16px;">
+                    <label>2. En esto consiste el Ciclo Gratificante: Elija una afirmación que lo anime respecto a la situación de su matrimonio:</label>
+                    <div style="display: grid; gap: 6px; font-size: 0.78rem; margin-top: 6px;">
+                        <label><input type="radio" name="q2_afirmacion" value="A. Cuando usted Ama o Respeta incondicionalmente, está siguiendo a Dios y su voluntad."> A. “Cuando usted Ama o Respeta incondicionalmente, está siguiendo a Dios y a la voluntad de Él para su vida”.</label>
+                        <label><input type="radio" name="q2_afirmacion" value="B. El Amor y el Respeto incondicional serán recompensados (Ciclo Gratificante)."> B. “El Amor y el Respeto incondicional serán recompensados. Llamo a esto el Ciclo Gratificante”.</label>
+                        <label><input type="radio" name="q2_afirmacion" value="C. Efesios 6:7-9: Sirvan de buena gana como quien sirve al Señor y no a los hombres."> C. “Creo que Pablo tenía en mente mi matrimonio en Efesios 6:7-9: 'Sirvan de buena gana, como quien sirve al Señor y no a los hombres...'”.</label>
+                        <label><input type="radio" name="q2_afirmacion" value="D. En el matrimonio todo lo que usted haga cuenta, ¡aunque parezca que su cónyuge lo ignore!"> D. “En el matrimonio todo lo que usted haga cuenta, ¡aunque parezca que su cónyuge lo ignore!”.</label>
+                    </div>
+                </div>
+
+                <!-- P3 -->
+                <div style="margin-bottom: 16px;">
+                    <label>3. “La recompensa celestial: el Eterno ‘¡Ahhh!’”. Jesús le ofrece una recompensa eterna por amar y respetar aquí en la tierra. ¿Qué opina de esta afirmación?</label>
+                    <textarea name="q3_eterno" rows="2" placeholder="Escriba su opinión..."></textarea>
+                </div>
+
+                <!-- P4 -->
+                <div style="margin-bottom: 16px;">
+                    <label>4. “Todo es entre usted y Jesucristo”. Empareje las preguntas con su respuesta correspondiente (A, B o C):</label>
+                    <p style="font-size: 0.75rem; color: #64748B; margin-bottom: 6px;">
+                        <strong>Respuestas guía:</strong><br>
+                        <strong>A:</strong> Cristo como Señor y fe (Marcos 9:24).<br>
+                        <strong>B:</strong> Proverbios 24:16 (levantarse de nuevo).<br>
+                        <strong>C:</strong> Inmadurez es querer todo fácil sin luchar.
+                    </p>
+                    
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• Pregunta 1: ¿Cuál es el PRERREQUISITO vital para que el Amor y el Respeto funcionen en su matrimonio?</p>
+                    <div style="display: flex; gap: 14px; font-size: 0.78rem;">
+                        <label><input type="radio" name="q4_p1" value="A"> A</label>
+                        <label><input type="radio" name="q4_p1" value="B"> B</label>
+                        <label><input type="radio" name="q4_p1" value="C"> C</label>
+                    </div>
+
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• Pregunta 2: ¿Cuál es la diferencia entre la pareja exitosa y la pareja que fracasa?</p>
+                    <div style="display: flex; gap: 14px; font-size: 0.78rem;">
+                        <label><input type="radio" name="q4_p2" value="A"> A</label>
+                        <label><input type="radio" name="q4_p2" value="B"> B</label>
+                        <label><input type="radio" name="q4_p2" value="C"> C</label>
+                    </div>
+
+                    <p style="font-size: 0.75rem; color: #334155; margin-top: 6px;">• Pregunta 3: ¿Cuál es la personificación de la inmadurez?</p>
+                    <div style="display: flex; gap: 14px; font-size: 0.78rem;">
+                        <label><input type="radio" name="q4_p3" value="A"> A</label>
+                        <label><input type="radio" name="q4_p3" value="B"> B</label>
+                        <label><input type="radio" name="q4_p3" value="C"> C</label>
+                    </div>
+                </div>
+
+                <!-- P5 -->
+                <div style="margin-bottom: 16px;">
+                    <label>5. Lean Proverbios 24:16. Hablen de por qué ustedes son una pareja exitosa y qué deben seguir haciendo para mantenerse así. Escriban su respuesta juntos:</label>
+                    <textarea name="q5_exitosos" rows="2" placeholder="Escriban su respuesta en pareja..."></textarea>
+                </div>
+
+                <!-- P6 -->
+                <div>
+                    <label>6. “Señor, ¿cuál es el principio básico que podemos tomar de la parábola de Cristo sobre el juicio final?” (Lean Mateo 25:31-46):</label>
+                    <textarea name="q6_mateo" rows="2" placeholder="Escriba su respuesta sobre servir a Cristo en el cónyuge..."></textarea>
+                </div>
+            </div>
+
+            <!-- ENVÍO PARA WHATSAPP -->
+            <div class="card" style="background-color: #0F172A; color: #ffffff; border-color: #334155;">
+                <h3 style="color: #34D399; border-bottom-color: #1E293B;">
+                    <span><i class="fa-brands fa-whatsapp"></i> Envío para WhatsApp</span>
+                </h3>
+                <p style="font-size: 0.78rem; color: #CBD5E1; margin-bottom: 12px;">
+                    Al terminar, presiona el botón para copiar tus respuestas con formato especial y abrir directamente WhatsApp para tu Grupo de Cuatro.
+                </p>
+
+                <button type="button" class="btn-whatsapp" onclick="handleWhatsAppSubmission()">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Copiar y Enviar a WhatsApp
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Barra flotante móvil -->
+    <div class="sticky-bottom-bar">
+        <button type="button" class="btn-whatsapp" onclick="handleWhatsAppSubmission()">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
+            <span>Copiar y Enviar a WhatsApp</span>
+        </button>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div id="toast">
+        <i id="toastIcon" class="fa-solid fa-circle-check" style="color: #34D399; font-size: 1.2rem;"></i>
+        <span id="toastMsg">Mensaje...</span>
+    </div>
+
+    <script>
+        function getFormData() {
+            const form = document.getElementById('evaluationForm');
+            const formData = new FormData(form);
+
+            return {
+                fecha: new Date().toLocaleString('es-CO'),
+                rol: formData.get('rol') || '',
+                nombre: formData.get('nombre') || '',
+                conyuge: formData.get('conyuge') || '',
+                q1_cita: formData.get('q1_cita') || 'S/R',
+                q2_afirmacion: formData.get('q2_afirmacion') || 'S/R',
+                q3_eterno: formData.get('q3_eterno') || '',
+                q4_p1: formData.get('q4_p1') || 'S/R',
+                q4_p2: formData.get('q4_p2') || 'S/R',
+                q4_p3: formData.get('q4_p3') || 'S/R',
+                q5_exitosos: formData.get('q5_exitosos') || '',
+                q6_mateo: formData.get('q6_mateo') || ''
+            };
+        }
+
+        function validateForm(data) {
+            if (!data.rol) {
+                showToast("Por favor seleccione si es Esposo o Esposa.", "error");
+                return false;
+            }
+            if (!data.nombre.trim()) {
+                showToast("Por favor ingrese su Nombre Completo.", "error");
+                document.getElementById('nombre').focus();
+                return false;
+            }
+            if (!data.conyuge.trim()) {
+                showToast("Por favor ingrese el Nombre de su Cónyuge.", "error");
+                document.getElementById('conyuge').focus();
+                return false;
+            }
+            return true;
+        }
+
+        function buildFormattedMessage(data) {
+            let text = `*GRUPO DE CONEXIÓN*\n`;
+            text += `*Iglesia El Lugar de Su Presencia*\n`;
+            text += `📖 *Capítulo 23: El Ciclo Gratificante*\n`;
+            text += `──────────────────────\n`;
+            text += `👤 *Participante:* ${data.nombre} (${data.rol})\n`;
+            text += `💍 *Cónyuge:* ${data.conyuge}\n`;
+            text += `📅 *Fecha:* ${data.fecha}\n`;
+            text += `──────────────────────\n\n`;
+            text += `*RESPUESTAS:*\n\n`;
+            text += `*1. No se dé por vencido:* ${data.q1_cita}\n\n`;
+            text += `*2. Afirmación del Ciclo Gratificante:* ${data.q2_afirmacion}\n\n`;
+            text += `*3. Recompensa celestial (Eterno Ahhh):* ${data.q3_eterno || 'S/R'}\n\n`;
+            text += `*4. Emparejamiento (Todo es con Cristo):*\n`;
+            text += `   • Prerrequisito vital: Opción ${data.q4_p1}\n`;
+            text += `   • Pareja exitosa vs. fracaso: Opción ${data.q4_p2}\n`;
+            text += `   • Inmadurez: Opción ${data.q4_p3}\n\n`;
+            text += `*5. Proverbios 24:16 (Por qué somos exitosos):* ${data.q5_exitosos || 'S/R'}\n\n`;
+            text += `*6. Mateo 25 (Servir a Cristo en el cónyuge):* ${data.q6_mateo || 'S/R'}\n\n`;
+            text += `*Pacto Supremo:* "En cuanto lo hicisteis a uno de estos mis hermanos más pequeños (tu cónyuge), a mí lo hicisteis." (Mateo 25:40)`;
+            return text;
+        }
+
+        async function copyToClipboardFallback(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                } catch (err) {
+                    console.warn("Fallo navigator.clipboard, recurriendo a fallback...", err);
+                }
+            }
+
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+
+            let successful = false;
+            try {
+                successful = document.execCommand("copy");
+            } catch (err) {
+                successful = false;
+            }
+            document.body.removeChild(textArea);
+            return successful;
+        }
+
+        async function handleWhatsAppSubmission() {
+            const data = getFormData();
+            if (!validateForm(data)) return;
+
+            const textMessage = buildFormattedMessage(data);
+            const copied = await copyToClipboardFallback(textMessage);
+
+            if (copied) {
+                showToast("¡Respuestas copiadas! Abriendo WhatsApp...", "success");
+            } else {
+                showToast("Abriendo WhatsApp para compartir...", "info");
+            }
+
+            setTimeout(() => {
+                const encodedText = encodeURIComponent(textMessage);
+                window.location.href = `https://api.whatsapp.com/send?text=${encodedText}`;
+            }, 1200);
+        }
+
+        function showToast(msg, type = "success") {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            if (type === "success") {
+                toastIcon.className = "fa-solid fa-circle-check";
+                toastIcon.style.color = "#34D399";
+            } else if (type === "error") {
+                toastIcon.className = "fa-solid fa-triangle-exclamation";
+                toastIcon.style.color = "#F87171";
+            } else {
+                toastIcon.className = "fa-solid fa-circle-info";
+                toastIcon.style.color = "#60A5FA";
+            }
+
+            toast.style.display = "flex";
+            setTimeout(() => { toast.style.display = "none"; }, 3500);
+        }
+    </script>
+</body>
+</html>
